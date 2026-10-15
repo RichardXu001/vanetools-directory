@@ -1,0 +1,5 @@
+# Smithery configuration for the VaneTools AI Directory MCP server.
+# Remote (HTTP) server — no build step, no runtime dependencies.
+startCommand:
+  type: remote
+  remoteUrl: https://vanetools.com/mcp

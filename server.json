@@ -1,0 +1,10 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "com.vanetools/vanetools-directory",
+  "title": "VaneTools AI Directory",
+  "description": "Search a curated directory of 38,000+ AI resources — apps, MCP servers, prompts, skills, plugins and workflows — directly from any MCP client. Read-only public endpoint, no authentication required.",
+  "homepage": "https://vanetools.com",
+  "remotes": {
+    "https://vanetools.com/mcp": {}
+  }
+}

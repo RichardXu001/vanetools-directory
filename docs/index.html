@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VaneTools MCP Server — Search 38,182 AI Resources from Claude, Cursor &amp; VS Code</title>
+<meta name="description" content="The VaneTools MCP server lets any MCP client search a curated catalog of 38,182 AI resources — apps, MCP servers, prompts, skills, plugins, workflows. Public endpoint, no API key.">
+<link rel="canonical" href="https://richardxu001.github.io/vanetools-directory/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="VaneTools MCP Server — Search 38,182 AI Resources from Any MCP Client">
+<meta property="og:description" content="Public read-only MCP endpoint at https://vanetools.com/mcp. Search 38,182 curated AI apps, prompts, skills, plugins and MCP servers directly from Claude, Cursor or VS Code.">
+<meta property="og:url" content="https://richardxu001.github.io/vanetools-directory/">
+<meta property="og:image" content="https://richardxu001.github.io/vanetools-directory/assets/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/vanetools-directory/assets/logo.svg" type="image/svg+xml">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "VaneTools MCP Server",
+  "applicationCategory": "DeveloperApplication",
+  "operatingSystem": "Web",
+  "url": "https://vanetools.com/mcp",
+  "description": "Remote MCP server exposing a curated catalog of 38,182 AI resources (apps, prompts, skills, plugins, workflows, MCP servers) to any MCP client. Read-only, no authentication.",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "author": { "@type": "Organization", "name": "VaneTools", "url": "https://vanetools.com" },
+  "datePublished": "2026-10-15",
+  "dateModified": "2026-10-15"
+}
+</script>
+<style>
+  :root { --ink:#10141c; --muted:#5b6472; --line:#e6e9ef; --brand:#2b5cff; --bg:#ffffff; --soft:#f6f8fb; }
+  * { box-sizing:border-box; }
+  body { margin:0; font:16px/1.7 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"PingFang SC","Hiragino Sans GB",sans-serif; color:var(--ink); background:var(--bg); }
+  header { border-bottom:1px solid var(--line); padding:14px 24px; display:flex; align-items:center; gap:14px; }
+  header img { height:30px; }
+  header nav { margin-left:auto; display:flex; gap:20px; font-size:15px; }
+  header nav a { color:var(--muted); text-decoration:none; }
+  header nav a:hover { color:var(--ink); }
+  main { max-width:880px; margin:0 auto; padding:40px 24px 64px; }
+  h1 { font-size:34px; line-height:1.25; margin:8px 0 12px; }
+  h2 { font-size:24px; margin-top:44px; }
+  h3 { font-size:18px; margin-top:28px; }
+  p.lead { font-size:19px; color:var(--ink); background:var(--soft); border-left:4px solid var(--brand); padding:16px 20px; border-radius:0 10px 10px 0; }
+  .muted { color:var(--muted); }
+  table { border-collapse:collapse; width:100%; margin:18px 0; font-size:15px; }
+  th, td { border:1px solid var(--line); padding:9px 13px; text-align:left; }
+  th { background:var(--soft); }
+  td.num { text-align:right; font-variant-numeric:tabular-nums; }
+  pre { background:#0f1420; color:#dbe4ff; padding:18px 20px; border-radius:12px; overflow-x:auto; font-size:14px; line-height:1.55; }
+  code { font-family:ui-monospace,SFMono-Regular,Menlo,monospace; }
+  p code, li code { background:var(--soft); padding:2px 6px; border-radius:6px; font-size:14px; }
+  a { color:var(--brand); }
+  footer { border-top:1px solid var(--line); padding:24px; text-align:center; color:var(--muted); font-size:14px; }
+  .cta { display:inline-block; background:var(--brand); color:#fff; padding:11px 22px; border-radius:10px; text-decoration:none; font-weight:600; margin:6px 8px 0 0; }
+  .cta.ghost { background:transparent; color:var(--brand); border:1.5px solid var(--brand); }
+</style>
+</head>
+<body>
+<header>
+  <img src="assets/logo.svg" alt="VaneTools logo">
+  <nav>
+    <a href="/vanetools-directory/">Overview</a>
+    <a href="/vanetools-directory/connect/">Connect</a>
+    <a href="/vanetools-directory/tools/">Catalog</a>
+    <a href="/vanetools-directory/faq/">FAQ</a>
+    <a href="https://vanetools.com">vanetools.com ↗</a>
+  </nav>
+</header>
+
+<main>
+  <h1>VaneTools MCP Server: search 38,182 curated AI resources from any MCP client</h1>
+  <p class="lead">The VaneTools MCP server exposes a curated directory of <strong>38,182 AI resources</strong> —
+  22,733 AI apps, 6,170 prompts, 4,893 skills, 3,082 plugins, 989 workflows, 278 MCP servers and 37 learning
+  resources — to any MCP-compatible client. The endpoint at <code>https://vanetools.com/mcp</code> is
+  <strong>public and read-only: no API key, no sign-up, no rate-limit gymnastics</strong>.</p>
+
+  <p>VaneTools is a bilingual (English/Chinese) AI directory. This site documents its MCP endpoint and the
+  open catalog data behind it. The full catalog index lives in the
+  <a href="https://github.com/RichardXu001/vanetools-directory">GitHub repository</a>
+  (<code>tools/catalog.json</code>, MIT licensed), and every listing links back to a detail page on
+  <a href="https://vanetools.com">vanetools.com</a>.</p>
+
+  <h2>Connect in 30 seconds</h2>
+  <p>Paste this into your MCP client configuration and restart the client:</p>
+  <pre><code>{
+  "mcpServers": {
+    "vanetools": {
+      "url": "https://vanetools.com/mcp"
+    }
+  }
+}</code></pre>
+  <p>Works in Claude Desktop (Settings → Developer → Edit Config), Cursor (Settings → MCP), and VS Code
+  (as an HTTP server entry in <code>mcp.json</code>). Step-by-step instructions for each client are on the
+  <a href="connect/">connection guide</a>.</p>
+
+  <h2>What can an agent search for?</h2>
+  <p>The endpoint answers natural-language queries like <em>“find MCP servers for Postgres”</em> or
+  <em>“recommend open-source tools for AI image upscaling”</em> against the curated catalog. Results come back
+  with names, detail-page links and official websites, so an agent can cite sources instead of hallucinating
+  tool names.</p>
+
+  <table>
+    <tr><th>Resource type</th><th>Count</th><th>Example query</th></tr>
+    <tr><td>AI apps</td><td class="num">22,733</td><td>“best open-source alternatives to Midjourney”</td></tr>
+    <tr><td>Prompts</td><td class="num">6,170</td><td>“find a cinematic product-photo prompt”</td></tr>
+    <tr><td>Skills</td><td class="num">4,893</td><td>“is there a skill for 12306 train lookup?”</td></tr>
+    <tr><td>Plugins</td><td class="num">3,082</td><td>“Chrome extensions for AI writing”</td></tr>
+    <tr><td>Workflows</td><td class="num">989</td><td>“n8n workflow for lead enrichment”</td></tr>
+    <tr><td>MCP servers</td><td class="num">278</td><td>“MCP server that queries BigQuery”</td></tr>
+    <tr><td>Learning</td><td class="num">37</td><td>“roadmaps for learning agentic AI”</td></tr>
+  </table>
+
+  <p>The <a href="tools/">catalog page</a> breaks these down further, and the machine-readable index is
+  <a href="https://github.com/RichardXu001/vanetools-directory/blob/main/tools/catalog.json">catalog.json</a>
+  in the repo.</p>
+
+  <h2>Why a remote endpoint instead of a local package?</h2>
+  <p>A remote (HTTP) MCP server needs no install, no Node/Python runtime and no updates: the config above is
+  the whole setup, and improvements to search quality land for every client at once. It also means the agent
+  always queries the live catalog — 38k resources and counting — instead of a snapshot baked into an npm
+  package.</p>
+
+  <h2>Quick FAQ</h2>
+  <h3>Is it really free?</h3>
+  <p>Yes. The endpoint is read-only and unauthenticated. More questions are answered on the
+  <a href="faq/">FAQ page</a>.</p>
+  <h3>Where do results link?</h3>
+  <p>Every result links to a detail page such as
+  <a href="https://vanetools.com/mcp-servers">vanetools.com/mcp-servers/…</a> with the full description,
+  categories and the project’s official website — bilingual pages, Chinese versions under
+  <a href="https://vanetools.com/zh">vanetools.com/zh</a>.</p>
+
+  <p style="margin-top:36px">
+    <a class="cta" href="connect/">Connect your client →</a>
+    <a class="cta ghost" href="https://vanetools.com">Browse the directory ↗</a>
+  </p>
+</main>
+
+<footer>
+  VaneTools Directory docs · open catalog, MIT licensed ·
+  <a href="https://github.com/RichardXu001/vanetools-directory">GitHub</a> ·
+  <a href="https://vanetools.com">vanetools.com</a> ·
+  Last updated: 2026-10-15
+</footer>
+</body>
+</html>

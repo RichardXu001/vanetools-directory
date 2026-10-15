@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VaneTools MCP FAQ — Endpoint, Auth, Data Source &amp; Rate Limits</title>
+<meta name="description" content="Answers to common questions about the VaneTools MCP endpoint: is it free, does it need an API key, where the data comes from, refresh cadence, and how it relates to the official MCP Registry.">
+<link rel="canonical" href="https://richardxu001.github.io/vanetools-directory/faq/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="VaneTools MCP FAQ">
+<meta property="og:description" content="Is the VaneTools MCP endpoint free? Does it need an API key? Where does the 38k-resource data come from? Short answers to the eight most common questions.">
+<meta property="og:url" content="https://richardxu001.github.io/vanetools-directory/faq/">
+<meta property="og:image" content="https://richardxu001.github.io/vanetools-directory/assets/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/vanetools-directory/assets/logo.svg" type="image/svg+xml">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "datePublished": "2026-10-15",
+  "dateModified": "2026-10-15",
+  "author": { "@type": "Organization", "name": "VaneTools", "url": "https://vanetools.com" },
+  "mainEntity": [
+    { "@type": "Question", "name": "Is the VaneTools MCP endpoint free to use?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. The endpoint at https://vanetools.com/mcp is public and read-only. There is no API key, no account and no charge. Point any MCP client at the URL and start querying." } },
+    { "@type": "Question", "name": "Where does the catalog data come from?", "acceptedAnswer": { "@type": "Answer", "text": "From the VaneTools editorial pipeline: submissions and curation across seven resource types (apps, prompts, skills, plugins, workflows, MCP servers, learning). The same data is published as llms.txt/llms-full.txt and mirrored in the open tools/catalog.json in this repository." } },
+    { "@type": "Question", "name": "How many resources does the catalog cover?", "acceptedAnswer": { "@type": "Answer", "text": "38,182 as of October 2026: 22,733 AI apps, 6,170 prompts, 4,893 skills, 3,082 plugins, 989 workflows, 278 MCP servers and 37 learning resources." } },
+    { "@type": "Question", "name": "Do I need to install anything?", "acceptedAnswer": { "@type": "Answer", "text": "No. It is a remote HTTP MCP server, so there is no npm package to install and no runtime to maintain. Adding the URL to your client config is the whole setup." } },
+    { "@type": "Question", "name": "Is this server in the official MCP Registry?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, under the namespace com.vanetools/vanetools-directory. Aggregators that sync from the Registry (Glama, PulseMCP and others) pick it up automatically, and it is also published on Smithery." } },
+    { "@type": "Question", "name": "Can I reuse the catalog data?", "acceptedAnswer": { "@type": "Answer", "text": "Yes — tools/catalog.json is MIT licensed. It contains public metadata only (name, type, detail-page URL, official website). Descriptions live on the vanetools.com detail pages." } },
+    { "@type": "Question", "name": "How often is the data refreshed?", "acceptedAnswer": { "@type": "Answer", "text": "The live endpoint always queries the current catalog, which is updated continuously. The JSON snapshot in this repo is regenerated alongside the public llms.txt feed." } },
+    { "@type": "Question", "name": "Does it work in Chinese?", "acceptedAnswer": { "@type": "Answer", "text": "The catalog is bilingual: every resource has a Chinese detail page under vanetools.com/zh, and queries in either language work against the same index." } }
+  ]
+}
+</script>
+<style>
+  :root { --ink:#10141c; --muted:#5b6472; --line:#e6e9ef; --brand:#2b5cff; --bg:#ffffff; --soft:#f6f8fb; }
+  * { box-sizing:border-box; }
+  body { margin:0; font:16px/1.7 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"PingFang SC","Hiragino Sans GB",sans-serif; color:var(--ink); background:var(--bg); }
+  header { border-bottom:1px solid var(--line); padding:14px 24px; display:flex; align-items:center; gap:14px; }
+  header img { height:30px; }
+  header nav { margin-left:auto; display:flex; gap:20px; font-size:15px; }
+  header nav a { color:var(--muted); text-decoration:none; }
+  main { max-width:880px; margin:0 auto; padding:40px 24px 64px; }
+  h1 { font-size:32px; line-height:1.25; margin:8px 0 12px; }
+  h2 { font-size:19px; margin-top:34px; margin-bottom:6px; }
+  p.lead { font-size:19px; background:var(--soft); border-left:4px solid var(--brand); padding:16px 20px; border-radius:0 10px 10px 0; }
+  .muted { color:var(--muted); }
+  code { font-family:ui-monospace,SFMono-Regular,Menlo,monospace; }
+  p code { background:var(--soft); padding:2px 6px; border-radius:6px; font-size:14px; }
+  a { color:var(--brand); }
+  footer { border-top:1px solid var(--line); padding:24px; text-align:center; color:var(--muted); font-size:14px; }
+  .meta { color:var(--muted); font-size:14px; }
+  details { border:1px solid var(--line); border-radius:10px; padding:12px 16px; margin:10px 0; }
+  summary { font-weight:600; cursor:pointer; }
+</style>
+</head>
+<body>
+<header>
+  <img src="../assets/logo.svg" alt="VaneTools logo">
+  <nav>
+    <a href="/vanetools-directory/">Overview</a>
+    <a href="/vanetools-directory/connect/">Connect</a>
+    <a href="/vanetools-directory/tools/">Catalog</a>
+    <a href="/vanetools-directory/faq/">FAQ</a>
+    <a href="https://vanetools.com">vanetools.com ↗</a>
+  </nav>
+</header>
+
+<main>
+  <h1>VaneTools MCP — frequently asked questions</h1>
+  <p class="lead">Short answers about the endpoint at <code>https://vanetools.com/mcp</code>: pricing, auth,
+  data source, refresh cadence and licensing. Longer setup instructions live in the
+  <a href="/vanetools-directory/connect/">connection guide</a>.</p>
+
+  <h2>Usage</h2>
+  <details open>
+    <summary>Is the endpoint free to use?</summary>
+    <p>Yes. Public and read-only, no API key, no account, no charge. Add the URL to any MCP client and query away.</p>
+  </details>
+  <details>
+    <summary>Do I need to install anything?</summary>
+    <p>No. It is a remote HTTP MCP server — no npm package, no Python env, no updates to manage. The config in the <a href="/vanetools-directory/connect/">connection guide</a> is the entire setup.</p>
+  </details>
+  <details>
+    <summary>Does it work in Chinese?</summary>
+    <p>The catalog is bilingual. Every resource has a Chinese detail page under
+    <a href="https://vanetools.com/zh">vanetools.com/zh</a>, and queries in either language hit the same index.</p>
+  </details>
+
+  <h2>Data</h2>
+  <details>
+    <summary>Where does the data come from?</summary>
+    <p>The VaneTools editorial pipeline — submissions plus curation across seven resource types. The same data is
+    published as <a href="https://vanetools.com/llms.txt">llms.txt</a> /
+    <a href="https://vanetools.com/llms-full.txt">llms-full.txt</a> and mirrored as structured JSON in this repo’s
+    <a href="https://github.com/RichardXu001/vanetools-directory/blob/main/tools/catalog.json">tools/catalog.json</a>.</p>
+  </details>
+  <details>
+    <summary>How many resources does the catalog cover?</summary>
+    <p><strong>38,182</strong> as of October 2026: 22,733 AI apps, 6,170 prompts, 4,893 skills, 3,082 plugins,
+    989 workflows, 278 MCP servers, 37 learning resources. The
+    <a href="/vanetools-directory/tools/">catalog page</a> has the type-by-type breakdown.</p>
+  </details>
+  <details>
+    <summary>How often is the data refreshed?</summary>
+    <p>The live endpoint queries the current catalog, which is updated continuously. The JSON snapshot in this
+    repo is regenerated alongside the public <code>llms.txt</code> feed.</p>
+  </details>
+
+  <h2>Licensing &amp; ecosystem</h2>
+  <details>
+    <summary>Can I reuse the catalog data?</summary>
+    <p>Yes — <code>catalog.json</code> is <strong>MIT licensed</strong>. It contains public metadata only
+    (name, type, detail-page URL, official website); descriptions stay on the vanetools.com detail pages.
+    Attribution is appreciated but not required.</p>
+  </details>
+  <details>
+    <summary>Is this server in the official MCP Registry?</summary>
+    <p>Yes — namespace <code>com.vanetools/vanetools-directory</code>. Registry-syncing aggregators such as
+    Glama and PulseMCP list it automatically. It is also published on
+    <a href="https://smithery.ai/server/richard-xu-auto/vanetools-directory">Smithery</a> and indexed by
+    <a href="https://mcpservers.org">mcpservers.org</a> and
+    <a href="https://cursor.directory/plugins/vanetools-ai-directory">Cursor Directory</a>.</p>
+  </details>
+
+  <p class="meta">Next: <a href="/vanetools-directory/connect/">connect your client</a> ·
+  <a href="/vanetools-directory/tools/">browse the catalog</a></p>
+</main>
+
+<footer>
+  VaneTools Directory docs · open catalog, MIT licensed ·
+  <a href="https://github.com/RichardXu001/vanetools-directory">GitHub</a> ·
+  <a href="https://vanetools.com">vanetools.com</a> ·
+  Last updated: 2026-10-15
+</footer>
+</body>
+</html>

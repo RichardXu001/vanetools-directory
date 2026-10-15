@@ -1,0 +1,12 @@
+<svg width="360" height="88" viewBox="0 0 360 88" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="mark-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#6366F1"/>
+      <stop offset="100%" stop-color="#4338CA"/>
+    </linearGradient>
+  </defs>
+  <rect x="4" y="4" width="80" height="80" rx="20" fill="url(#mark-grad)"/>
+  <path d="M26 30 L44 58 L62 30" stroke="#FFFFFF" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <circle cx="44" cy="58" r="4.5" fill="#FFFFFF"/>
+  <text x="102" y="56" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="700" font-size="36" fill="#111827" letter-spacing="-0.5">VaneTools</text>
+</svg>

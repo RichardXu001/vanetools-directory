@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How to Connect a Remote MCP Server to Claude Desktop, Cursor &amp; VS Code (2026)</title>
+<meta name="description" content="Step-by-step guide to adding a remote HTTP MCP server to Claude Desktop, Cursor and VS Code, using the free public VaneTools endpoint as the example. Config JSON included.">
+<link rel="canonical" href="https://richardxu001.github.io/vanetools-directory/connect/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="How to Connect a Remote MCP Server to Claude Desktop, Cursor & VS Code">
+<meta property="og:description" content="Remote MCP servers need no install or API key. Copy-paste configs for Claude Desktop, Cursor and VS Code, using the free VaneTools endpoint as a working example.">
+<meta property="og:url" content="https://richardxu001.github.io/vanetools-directory/connect/">
+<meta property="og:image" content="https://richardxu001.github.io/vanetools-directory/assets/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/vanetools-directory/assets/logo.svg" type="image/svg+xml">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to connect a remote MCP server to Claude Desktop, Cursor and VS Code",
+  "description": "Three copy-paste configurations for adding a remote HTTP MCP server to the most common MCP clients, using the free public VaneTools endpoint as the example.",
+  "datePublished": "2026-10-15",
+  "dateModified": "2026-10-15",
+  "author": { "@type": "Organization", "name": "VaneTools", "url": "https://vanetools.com" },
+  "totalTime": "PT2M",
+  "step": [
+    { "@type": "HowToStep", "name": "Claude Desktop", "text": "Open Settings → Developer → Edit Config, paste the mcpServers JSON with the remote URL into claude_desktop_config.json, save and restart Claude Desktop." },
+    { "@type": "HowToStep", "name": "Cursor", "text": "Open Settings → MCP → Add new global MCP server, paste the mcpServers JSON, save. The server appears in the MCP list once connected." },
+    { "@type": "HowToStep", "name": "VS Code", "text": "Open the MCP config (mcp.json) via Command Palette → MCP: Add Server, add an entry with type http and the remote URL, reload the window." }
+  ]
+}
+</script>
+<style>
+  :root { --ink:#10141c; --muted:#5b6472; --line:#e6e9ef; --brand:#2b5cff; --bg:#ffffff; --soft:#f6f8fb; }
+  * { box-sizing:border-box; }
+  body { margin:0; font:16px/1.7 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"PingFang SC","Hiragino Sans GB",sans-serif; color:var(--ink); background:var(--bg); }
+  header { border-bottom:1px solid var(--line); padding:14px 24px; display:flex; align-items:center; gap:14px; }
+  header img { height:30px; }
+  header nav { margin-left:auto; display:flex; gap:20px; font-size:15px; }
+  header nav a { color:var(--muted); text-decoration:none; }
+  main { max-width:880px; margin:0 auto; padding:40px 24px 64px; }
+  h1 { font-size:32px; line-height:1.25; margin:8px 0 12px; }
+  h2 { font-size:24px; margin-top:44px; }
+  h3 { font-size:18px; margin-top:28px; }
+  p.lead { font-size:19px; background:var(--soft); border-left:4px solid var(--brand); padding:16px 20px; border-radius:0 10px 10px 0; }
+  .muted { color:var(--muted); }
+  table { border-collapse:collapse; width:100%; margin:18px 0; font-size:15px; }
+  th, td { border:1px solid var(--line); padding:9px 13px; text-align:left; }
+  th { background:var(--soft); }
+  pre { background:#0f1420; color:#dbe4ff; padding:18px 20px; border-radius:12px; overflow-x:auto; font-size:14px; line-height:1.55; }
+  code { font-family:ui-monospace,SFMono-Regular,Menlo,monospace; }
+  p code, li code { background:var(--soft); padding:2px 6px; border-radius:6px; font-size:14px; }
+  a { color:var(--brand); }
+  footer { border-top:1px solid var(--line); padding:24px; text-align:center; color:var(--muted); font-size:14px; }
+  .meta { color:var(--muted); font-size:14px; }
+</style>
+</head>
+<body>
+<header>
+  <img src="../assets/logo.svg" alt="VaneTools logo">
+  <nav>
+    <a href="/vanetools-directory/">Overview</a>
+    <a href="/vanetools-directory/connect/">Connect</a>
+    <a href="/vanetools-directory/tools/">Catalog</a>
+    <a href="/vanetools-directory/faq/">FAQ</a>
+    <a href="https://vanetools.com">vanetools.com ↗</a>
+  </nav>
+</header>
+
+<main>
+  <h1>How to connect a remote MCP server to Claude Desktop, Cursor and VS Code</h1>
+  <p class="meta">By VaneTools Team · Published 2026-10-15 · 2-minute setup</p>
+  <p class="lead">A <strong>remote (HTTP) MCP server</strong> needs no install, no runtime and no build step —
+  you only add its URL to your client’s config. Below are the exact copy-paste configs for the three most
+  common MCP clients, using the free public
+  <strong>VaneTools</strong> endpoint (<code>https://vanetools.com/mcp</code>) as the working example.
+  The same pattern works for any remote MCP server: swap the URL.</p>
+
+  <h2>The one config to know</h2>
+  <p>Most clients read an <code>mcpServers</code> block. For a remote server you specify just a name and a URL:</p>
+  <pre><code>{
+  "mcpServers": {
+    "vanetools": {
+      "url": "https://vanetools.com/mcp"
+    }
+  }
+}</code></pre>
+  <p>The VaneTools endpoint is read-only and unauthenticated, so there is nothing else to configure —
+  no <code>env</code>, no headers, no tokens.</p>
+
+  <h2>Claude Desktop</h2>
+  <ol>
+    <li>Open <strong>Settings → Developer → Edit Config</strong>. This opens <code>claude_desktop_config.json</code>.</li>
+    <li>Paste the JSON block above into the file (merge it if you already have other servers).</li>
+    <li>Save and fully restart Claude Desktop (not just the window).</li>
+    <li>Open a chat, click the tools icon — you should see the <code>vanetools</code> tools listed.</li>
+  </ol>
+  <p>The same JSON lives in <a href="https://github.com/RichardXu001/vanetools-directory/blob/main/examples/claude-desktop.json">examples/claude-desktop.json</a> in the repo.</p>
+
+  <h2>Cursor</h2>
+  <ol>
+    <li>Open <strong>Settings → MCP → Add new global MCP server</strong>.</li>
+    <li>Paste the same <code>mcpServers</code> JSON and save.</li>
+    <li>The entry appears in your MCP list; a green dot means connected.</li>
+  </ol>
+  <p>Cursor-specific notes: the JSON is identical to Claude Desktop’s. Project-level config also works
+  (<code>.cursor/mcp.json</code> in the repo root) if you want the server available only in one project.</p>
+
+  <h2>VS Code</h2>
+  <ol>
+    <li>Command Palette → <strong>MCP: Add Server</strong> (or edit <code>mcp.json</code> directly).</li>
+    <li>VS Code uses a slightly different shape — the server type is <code>http</code>:</li>
+  </ol>
+  <pre><code>{
+  "servers": {
+    "vanetools": {
+      "type": "http",
+      "url": "https://vanetools.com/mcp"
+    }
+  }
+}</code></pre>
+  <li>Reload the window. The server shows under the MCP section of the Chat view.</li>
+
+  <h2>Troubleshooting</h2>
+  <table>
+    <tr><th>Symptom</th><th>Fix</th></tr>
+    <tr><td>Server shows but no tools listed</td><td>Remote servers register tools dynamically — ask the agent to “list your tools” or restart the client.</td></tr>
+    <tr><td>Connection refused / timeout</td><td>Check corporate proxies; the endpoint is plain HTTPS on <code>vanetools.com</code>. Test with <code>curl -I https://vanetools.com/mcp</code>.</td></tr>
+    <tr><td>Config edits ignored</td><td>Claude Desktop and Cursor read config at startup — a full restart (not just a new chat) is required.</td></tr>
+  </table>
+
+  <h2>What to try once connected</h2>
+  <p>Ask your agent things like <em>“use vanetools to find MCP servers for working with Postgres”</em> or
+  <em>“search the vanetools catalog for open-source AI image upscalers”</em>. Every result links to a detail
+  page on <a href="https://vanetools.com">vanetools.com</a> with the full description and the project’s
+  official site, so citations stay verifiable. The MCP-servers category alone indexes
+  <a href="https://vanetools.com/mcp-servers">278 curated servers</a>.</p>
+
+  <p class="meta">More: <a href="/vanetools-directory/tools/">browse the full catalog</a> ·
+  <a href="/vanetools-directory/faq/">endpoint FAQ</a></p>
+</main>
+
+<footer>
+  VaneTools Directory docs · open catalog, MIT licensed ·
+  <a href="https://github.com/RichardXu001/vanetools-directory">GitHub</a> ·
+  <a href="https://vanetools.com">vanetools.com</a> ·
+  Last updated: 2026-10-15
+</footer>
+</body>
+</html>

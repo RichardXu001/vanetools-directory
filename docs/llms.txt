@@ -1,0 +1,21 @@
+# VaneTools Directory — open MCP catalog & docs
+
+> Open catalog behind the VaneTools AI directory (38,182 curated AI resources) and the
+> documentation for its public MCP endpoint at https://vanetools.com/mcp.
+> Read-only, no authentication. Catalog data is MIT licensed.
+
+The main site lives at https://vanetools.com (bilingual EN/中文). This GitHub Pages
+site documents the MCP endpoint and hosts the open catalog snapshot.
+
+## Pages
+
+- [Overview](https://richardxu001.github.io/vanetools-directory/): what the MCP server exposes, connection summary, catalog stats.
+- [Connection guide](https://richardxu001.github.io/vanetools-directory/connect/): copy-paste configs for Claude Desktop, Cursor and VS Code.
+- [Catalog](https://richardxu001.github.io/vanetools-directory/tools/): type-by-type breakdown and the machine-readable index.
+- [FAQ](https://richardxu001.github.io/vanetools-directory/faq/): pricing, auth, data source, refresh cadence, licensing.
+
+## Data
+
+- Catalog JSON (MIT): https://github.com/RichardXu001/vanetools-directory/blob/main/tools/catalog.json
+- Registry manifest: https://github.com/RichardXu001/vanetools-directory/blob/main/server.json
+- Full resource feed: https://vanetools.com/llms-full.txt

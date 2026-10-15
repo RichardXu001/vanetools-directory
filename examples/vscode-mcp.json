@@ -1,0 +1,8 @@
+{
+  "servers": {
+    "vanetools": {
+      "type": "http",
+      "url": "https://vanetools.com/mcp"
+    }
+  }
+}
