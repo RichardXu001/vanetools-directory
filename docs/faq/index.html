@@ -3,12 +3,12 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>VaneTools MCP FAQ — Endpoint, Auth, Data Source &amp; Rate Limits</title>
-<meta name="description" content="Answers to common questions about the VaneTools MCP endpoint: is it free, does it need an API key, where the data comes from, refresh cadence, and how it relates to the official MCP Registry.">
+<title>VaneTools FAQ — Catalog, Open Data, MCP Endpoint &amp; Licensing</title>
+<meta name="description" content="Answers about VaneTools: what the directory covers, whether the MCP endpoint is free, where the 38k-resource data comes from, refresh cadence, and catalog licensing.">
 <link rel="canonical" href="https://richardxu001.github.io/vanetools-directory/faq/">
 <meta property="og:type" content="article">
-<meta property="og:title" content="VaneTools MCP FAQ">
-<meta property="og:description" content="Is the VaneTools MCP endpoint free? Does it need an API key? Where does the 38k-resource data come from? Short answers to the eight most common questions.">
+<meta property="og:title" content="VaneTools FAQ — Catalog, Open Data & MCP">
+<meta property="og:description" content="What is VaneTools? Is the MCP endpoint free? Where does the 38k-resource data come from? Short answers to the most common questions.">
 <meta property="og:url" content="https://richardxu001.github.io/vanetools-directory/faq/">
 <meta property="og:image" content="https://richardxu001.github.io/vanetools-directory/assets/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
@@ -21,6 +21,7 @@
   "dateModified": "2026-10-15",
   "author": { "@type": "Organization", "name": "VaneTools", "url": "https://vanetools.com" },
   "mainEntity": [
+    { "@type": "Question", "name": "What is VaneTools?", "acceptedAnswer": { "@type": "Answer", "text": "VaneTools is a bilingual (English/Chinese) AI directory that curates 38,182 AI resources across seven types: AI apps, prompts, agent skills, plugins, workflows, MCP servers and learning resources. Every listing links to a detail page with the project's official website." } },
     { "@type": "Question", "name": "Is the VaneTools MCP endpoint free to use?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. The endpoint at https://vanetools.com/mcp is public and read-only. There is no API key, no account and no charge. Point any MCP client at the URL and start querying." } },
     { "@type": "Question", "name": "Where does the catalog data come from?", "acceptedAnswer": { "@type": "Answer", "text": "From the VaneTools editorial pipeline: submissions and curation across seven resource types (apps, prompts, skills, plugins, workflows, MCP servers, learning). The same data is published as llms.txt/llms-full.txt and mirrored in the open tools/catalog.json in this repository." } },
     { "@type": "Question", "name": "How many resources does the catalog cover?", "acceptedAnswer": { "@type": "Answer", "text": "38,182 as of October 2026: 22,733 AI apps, 6,170 prompts, 4,893 skills, 3,082 plugins, 989 workflows, 278 MCP servers and 37 learning resources." } },
@@ -67,12 +68,28 @@
 </header>
 
 <main>
-  <h1>VaneTools MCP — frequently asked questions</h1>
-  <p class="lead">Short answers about the endpoint at <code>https://vanetools.com/mcp</code>: pricing, auth,
-  data source, refresh cadence and licensing. Longer setup instructions live in the
-  <a href="/vanetools-directory/connect/">connection guide</a>.</p>
+  <h1>VaneTools — frequently asked questions</h1>
+  <p class="lead">Short answers about the VaneTools directory and its MCP endpoint at
+  <code>https://vanetools.com/mcp</code>: what it covers, pricing, auth, data source, refresh cadence and
+  licensing. Longer setup instructions live in the <a href="/vanetools-directory/connect/">connection guide</a>.</p>
 
-  <h2>Usage</h2>
+  <h2>The directory</h2>
+  <details open>
+    <summary>What is VaneTools?</summary>
+    <p>A bilingual (English/中文) AI directory that curates <strong>38,182 resources</strong> across seven
+    types — AI apps, prompts, agent skills, plugins, workflows, MCP servers and learning resources. Every
+    listing is editorially reviewed and links to a bilingual detail page on
+    <a href="https://vanetools.com">vanetools.com</a> with the project's official website.</p>
+  </details>
+  <details>
+    <summary>How is the catalog maintained?</summary>
+    <p>Submissions plus editorial curation. New resources go through review on the main site before they enter
+    the catalog; the open index in this repo's
+    <a href="https://github.com/RichardXu001/vanetools-directory/blob/main/tools/catalog.json">catalog.json</a>
+    is regenerated deterministically from the public feed so the data stays auditable.</p>
+  </details>
+
+  <h2>The MCP endpoint</h2>
   <details open>
     <summary>Is the endpoint free to use?</summary>
     <p>Yes. Public and read-only, no API key, no account, no charge. Add the URL to any MCP client and query away.</p>
